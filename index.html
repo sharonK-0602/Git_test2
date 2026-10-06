@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>지역 거점 동시 상영 기획안</title>
+<style>
+  :root { --ink: #1f1d3d; --paper: #f3ead7; }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    min-height: 100vh; display: grid; place-items: center; padding: 24px 16px;
+    background: var(--ink); color: var(--ink);
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  .ticket { display: flex; width: 100%; max-width: 920px; background: var(--paper); border-radius: 16px; }
+  .main { flex: 1; padding: 44px 48px; }
+  .stub {
+    width: 220px; padding: 44px 28px; position: relative;
+    border-left: 3px dashed var(--ink);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  /* 절취선 위·아래 반원 홈 */
+  .stub::before, .stub::after {
+    content: ""; position: absolute; left: -19px; width: 34px; height: 34px;
+    border-radius: 50%; background: var(--ink);
+  }
+  .stub::before { top: -17px; }
+  .stub::after { bottom: -17px; }
+  .label { font-size: 12px; font-weight: 700; letter-spacing: .18em; }
+  h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.3; margin: 14px 0 20px; word-break: keep-all; }
+  .summary {
+    font-size: 18px; font-weight: 600; padding: 14px 0;
+    border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink); word-break: keep-all;
+  }
+  ol { list-style: none; padding: 0; margin-top: 24px; display: grid; gap: 14px; counter-reset: n; }
+  li { display: flex; gap: 14px; align-items: baseline; font-size: 16px; line-height: 1.5; word-break: keep-all; counter-increment: n; }
+  li::before {
+    content: "0" counter(n); flex: none; font-size: 13px; font-weight: 800;
+    background: var(--ink); color: var(--paper); padding: 3px 8px; border-radius: 4px;
+  }
+  .name { font-size: 30px; font-weight: 800; margin-top: 10px; writing-mode: horizontal-tb; }
+  .admit { font-size: 12px; font-weight: 700; letter-spacing: .3em; }
+  @media (max-width: 640px) {
+    .ticket { flex-direction: column; }
+    .main { padding: 32px 24px; }
+    .stub { width: auto; padding: 28px 24px; border-left: 0; border-top: 3px dashed var(--ink); flex-direction: row; align-items: end; gap: 16px; }
+    .stub::before, .stub::after { top: -19px; bottom: auto; }
+    .stub::before { left: -17px; }
+    .stub::after { left: auto; right: -17px; }
+  }
+</style>
+</head>
+<body>
+  <main class="ticket">
+    <section class="main">
+      <p class="label">PROPOSAL · LIVE SCREENING</p>
+      <h1>서울까지 왕복 8시간을,<br>지역 거점 동시 상영으로</h1>
+      <p class="summary">서울에 못 가는 지방 팬도 같은 시간에 같이 본다.</p>
+      <ol>
+        <li>Pain Point를 하나로 줄였다.</li>
+        <li>VR이 아니라 극장 생중계였다 → 대형 스크린 동시 상영</li>
+        <li>티켓은 1.5~2.5만 원대 + 현장 MD</li>
+      </ol>
+    </section>
+    <aside class="stub">
+      <div>
+        <p class="label">PLANNER</p>
+        <p class="name">김샤론</p>
+      </div>
+      <p class="admit">ADMIT ONE</p>
+    </aside>
+  </main>
+</body>
+</html>
